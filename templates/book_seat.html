@@ -1,0 +1,17 @@
+{% extends 'base.html %}
+{% block 'main' %}
+    <script>
+        $(function() {
+            get_available_seats();
+        });
+    </script>
+    <div class="ui two column grid">
+    <div class="column" id="event-container" data-eventid="{{ event['_id'] }}">
+        <h1>Seat Booking Application</h1>
+        <h3>Book seat on "{{ event['name'] }}"</h3>
+        <div id="seats"></div>
+        Click on seat to book it. Blue seats available, grey seats already occupied.<br>
+    </div>
+
+  </div>
+{% end %}

@@ -1,0 +1,21 @@
+{% extends 'base.html %}
+{% block 'main' %}
+    <div class="ui two column grid">
+    <div class="column">
+        <h1>Seat Booking Application</h1>
+        <div class="ui button" onclick="javascript:location.href='{{ reverse_url('add-event') }}';">
+            Create event
+        </div>
+        {% if events %}
+            <div class="custom-label">or book seat for existing events</div>
+            <ul>
+            {% for event in events %}
+                <li>
+                    <a href="{{ reverse_url('show-event', event['_id']) }}">{{ event['name'] }}</a>
+                </li>
+            {% end %}
+            </ul>
+        {% end %}
+    </div>
+  </div>
+{% end %}

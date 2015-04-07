@@ -1,0 +1,61 @@
+{% extends 'base.html %}
+{% block 'main' %}
+    <div class="ui two column grid">
+    <div class="column">
+        <h1>Seat Booking Application</h1>
+        <h3>Add Event</h3>
+        {% if success is True %}
+            <div class="ui green message">Event has been successfully added.</div>
+        {% elif success is False %}
+            <div class="ui red message">
+                Error while adding new event.<br>
+            </div>
+        {% end %}
+        <form name='add_event_form' action="" method="post">
+            {% if form.name.errors %}
+                <ul>
+                    {% for error in form.name.errors %}<li>{{ error }}</li>{% end %}
+                </ul>
+            {% end %}
+            <b>{{ form.name.label }}</b><br>
+            <div class="ui input">
+                {{ form.name }}
+            </div><br>
+
+            {% if form.rows.errors %}
+                <ul>
+                    {% for error in form.rows.errors %}<li>{{ error }}</li>{% end %}
+                </ul>
+            {% end %}
+            <b>{{ form.rows.label }}</b><br>
+            <div class="ui input">
+                {{ form.rows }}
+            </div><br>
+
+            {% if form.seats.errors %}
+                <ul>
+                    {% for error in form.seats.errors %}<li>{{ error }}</li>{% end %}
+                </ul>
+            {% end %}
+            <b>{{ form.seats.label }}</b><br>
+            <div class="ui input">
+                {{ form.seats }}
+            </div><br>
+
+            {% if form.capacity.errors %}
+                <ul>
+                    {% for error in form.capacity.errors %}<li>{{ error }}</li>{% end %}
+                </ul>
+            {% end %}
+            <b>{{ form.capacity.label }}</b><br>
+            <div class="ui input">
+                {{ form.capacity }}
+            </div><br>
+            <br>
+            <div class="ui button" onclick="javascript:forms.add_event_form.submit();">
+                Create event
+            </div>
+        </form>
+    </div>
+  </div>
+{% end %}
